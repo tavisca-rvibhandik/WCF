@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeService", "EmployeeService\EmployeeService.csproj", "{ECA5DC6B-94D1-40D3-A46B-FD42BB438BD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "Consumer\Consumer.csproj", "{D6FE4BFC-489D-45C7-A57E-D015E118688F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ECA5DC6B-94D1-40D3-A46B-FD42BB438BD4} = {ECA5DC6B-94D1-40D3-A46B-FD42BB438BD4}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECA5DC6B-94D1-40D3-A46B-FD42BB438BD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA5DC6B-94D1-40D3-A46B-FD42BB438BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA5DC6B-94D1-40D3-A46B-FD42BB438BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA5DC6B-94D1-40D3-A46B-FD42BB438BD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6FE4BFC-489D-45C7-A57E-D015E118688F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6FE4BFC-489D-45C7-A57E-D015E118688F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6FE4BFC-489D-45C7-A57E-D015E118688F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6FE4BFC-489D-45C7-A57E-D015E118688F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
