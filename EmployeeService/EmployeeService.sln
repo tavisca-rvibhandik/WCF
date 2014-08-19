@@ -8,6 +8,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "Consumer\Consum
 		{ECA5DC6B-94D1-40D3-A46B-FD42BB438BD4} = {ECA5DC6B-94D1-40D3-A46B-FD42BB438BD4}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeServiceFixture", "EmployeeServiceFixture\EmployeeServiceFixture.csproj", "{A861BB62-8629-4374-8BA9-832FC71D8AA1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ECA5DC6B-94D1-40D3-A46B-FD42BB438BD4} = {ECA5DC6B-94D1-40D3-A46B-FD42BB438BD4}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeServiceParameterValidator", "EmployeeServiceParameterValidator\EmployeeServiceParameterValidator.csproj", "{2E01D24F-C8A2-4FBA-8CFC-C410B72373D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +29,14 @@ Global
 		{D6FE4BFC-489D-45C7-A57E-D015E118688F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6FE4BFC-489D-45C7-A57E-D015E118688F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6FE4BFC-489D-45C7-A57E-D015E118688F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A861BB62-8629-4374-8BA9-832FC71D8AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A861BB62-8629-4374-8BA9-832FC71D8AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A861BB62-8629-4374-8BA9-832FC71D8AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A861BB62-8629-4374-8BA9-832FC71D8AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E01D24F-C8A2-4FBA-8CFC-C410B72373D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E01D24F-C8A2-4FBA-8CFC-C410B72373D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E01D24F-C8A2-4FBA-8CFC-C410B72373D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E01D24F-C8A2-4FBA-8CFC-C410B72373D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

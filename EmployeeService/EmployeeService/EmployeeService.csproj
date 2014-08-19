@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EmployeeServiceParameterValidator">
+      <HintPath>..\EmployeeServiceParameterValidator\bin\Debug\EmployeeServiceParameterValidator.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -68,6 +71,7 @@
     <Compile Include="EmployeeServiceImplementation.svc.cs">
       <DependentUpon>EmployeeServiceImplementation.svc</DependentUpon>
     </Compile>
+    <Compile Include="FaultExceptionContract.cs" />
     <Compile Include="IEmployeeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

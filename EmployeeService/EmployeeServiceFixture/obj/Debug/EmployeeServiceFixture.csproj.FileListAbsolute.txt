@@ -1,0 +1,5 @@
+E:\wcf\WCF\EmployeeService\EmployeeServiceFixture\bin\Debug\EmployeeServiceFixture.dll
+E:\wcf\WCF\EmployeeService\EmployeeServiceFixture\bin\Debug\EmployeeServiceFixture.pdb
+E:\wcf\WCF\EmployeeService\EmployeeServiceFixture\obj\Debug\EmployeeServiceFixture.dll
+E:\wcf\WCF\EmployeeService\EmployeeServiceFixture\obj\Debug\EmployeeServiceFixture.pdb
+E:\wcf\WCF\EmployeeService\EmployeeServiceFixture\bin\Debug\EmployeeServiceFixture.dll.config

@@ -1,0 +1,4 @@
+E:\wcf\WCF\EmployeeService\EmployeeServiceParameterValidator\bin\Debug\EmployeeServiceParameterValidator.dll
+E:\wcf\WCF\EmployeeService\EmployeeServiceParameterValidator\bin\Debug\EmployeeServiceParameterValidator.pdb
+E:\wcf\WCF\EmployeeService\EmployeeServiceParameterValidator\obj\Debug\EmployeeServiceParameterValidator.dll
+E:\wcf\WCF\EmployeeService\EmployeeServiceParameterValidator\obj\Debug\EmployeeServiceParameterValidator.pdb

@@ -12,42 +12,43 @@ namespace EmployeeService
     public interface ICreateEmployeeService
     {
         [OperationContract]
-        string CreateEmployee(Employee e);
+        [FaultContract(typeof(FaultExceptionContract))]
+        string CreateEmployee(Employee employee);
 
         [OperationContract]
-        string AddRemarks(int id, string remarks);       
+        [FaultContract(typeof(FaultExceptionContract))]
+        string AddRemarks(int id, string remarks);
     }
 
     [ServiceContract]
     public interface IRetrieveEmployeeService
     {
         [OperationContract]
+        [FaultContract(typeof(FaultExceptionContract))]
         List<Employee> GetEmployees();
 
         [OperationContract(Name = "SearchById")]
+        [FaultContract(typeof(FaultExceptionContract))]
         Employee GetEmployee(int Id);
 
         [OperationContract(Name = "SearchByName")]
-        Employee GetEmployee(string Name);
+        [FaultContract(typeof(FaultExceptionContract))]
+        List<Employee> GetEmployee(string Name);
+
+        [OperationContract]
+        [FaultContract(typeof(FaultExceptionContract))]
+        List<Employee> GetEmployeesByRemark(string remark);
     }
-   
+
     [DataContract]
     public class Employee
     {
-        //public Employee()
-        //{
-        //    Id = 1;
-        //    Name = "emp1";
-        //    RemarkDate = System.DateTime.Now;
-        //    RemarkText.Add("vry bad");
-        //}
-        public Employee(int id,String name,DateTime remarkDate,String remarkText)
+        public Employee()
         {
-            Id = id;
-            Name = name;
-            RemarkDate = remarkDate;
-            RemarkText.Add(remarkText);
+            Remarks.Add(System.DateTime.Now, "No Remarks yet");
         }
+        
+
         [DataMember]
         public int Id { get; set; }
 
@@ -55,10 +56,8 @@ namespace EmployeeService
         public string Name { get; set; }
 
         [DataMember]
-        public DateTime RemarkDate { get; set; }
+        public Dictionary<DateTime,string> Remarks =
+            new Dictionary<DateTime,string>();
 
-        [DataMember]
-        public List<string> RemarkText=new List<string>();
-        
     }
 }

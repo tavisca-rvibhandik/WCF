@@ -10,57 +10,131 @@ namespace EmployeeService
 {
     public class EmployeeServiceImplementation : ICreateEmployeeService, IRetrieveEmployeeService
     {
-        static List<Employee> _List = new List<Employee>();
+        private static List<Employee> _list = new List<Employee>();
 
         public string CreateEmployee(Employee e)
         {
-            foreach (var item in _List)
+            try
             {
-                if (item.Id == e.Id)
-                    return "Record Already Present with same ID";
+                //Check if employee with specified id is already present
+                var employee = _list.Where(t => t.Id == e.Id).FirstOrDefault();
+                if (employee != null)
+                    throw new Exception();
+                _list.Add(e);
+                return "Record successfully added";
             }
-            _List.Add(e);
-            return "Record successfully added";
+            catch
+            {
+                FaultExceptionContract faultcontract = new FaultExceptionContract();
+                faultcontract.Message = "Record Already Present with same ID";
+                throw new FaultException<FaultExceptionContract>(faultcontract, new FaultReason("Record Already Present with same ID"));
+            }
+
         }
 
         public string AddRemarks(int id, string remarks)
         {
-            foreach (var item in _List)
+            try
             {
-                if (item.Id == id)
+                //Check if employee with specified id is present
+                var employee = _list.Where(t => t.Id == id).FirstOrDefault();
+                if (employee != null)
                 {
-                    item.RemarkDate = System.DateTime.Now;
-                    item.RemarkText.Add(remarks);
+                    employee.Remarks.Add(System.DateTime.Now, remarks);
                     return "Remark added successfully";
                 }
+
+                throw new Exception();
             }
-            return "Record Not Found";
+            catch
+            {
+                FaultExceptionContract faultcontract = new FaultExceptionContract();
+                faultcontract.Message = "Record not found";
+                throw new FaultException<FaultExceptionContract>(faultcontract, new FaultReason("Record not found"));
+            }
         }
 
         public List<Employee> GetEmployees()
         {
-            return _List;
+            try
+            {
+                //Check if employee list is empty
+                if (_list.Count == 0)
+                    throw new Exception();
+                return _list;
+            }
+            catch
+            {
+                FaultExceptionContract faultcontract = new FaultExceptionContract();
+                faultcontract.Message = "No employees added";
+                throw new FaultException<FaultExceptionContract>(faultcontract, new FaultReason("No employees added"));
+            }
         }
 
-        public Employee GetEmployee(int Id)
+        public Employee GetEmployee(int id)
         {
-            foreach (var item in _List)
+            try
             {
-                if (item.Id == Id)
-                    return item;
+                var employee = _list.Where(t => t.Id == id).FirstOrDefault();
+                if (employee != null)
+                    return employee;
+                throw new Exception();
             }
-            return null;
+            catch
+            {
+                FaultExceptionContract faultcontract = new FaultExceptionContract();
+                faultcontract.Message = "No record found for specified Id";
+                throw new FaultException<FaultExceptionContract>(faultcontract, new FaultReason("No record found for specified Id"));
+            }
         }
 
-        public Employee GetEmployee(string Name)
+        public List<Employee> GetEmployee(string name)
         {
-
-            foreach (var item in _List)
+            List<Employee> employeeList = new List<Employee>();
+            int flag = 0;
+            try
             {
-                if (item.Name == Name)
-                    return item;
+                //Check if employees with specified name are present
+                employeeList.AddRange(_list.FindAll(t => String.Equals(t.Name, name, StringComparison.OrdinalIgnoreCase)));
+                if (employeeList.Count != 0)
+                {
+                    flag = 1;
+                }
+                if (flag == 0)
+                    throw new Exception();
+                return employeeList;
             }
-            return null;
+            catch
+            {
+                FaultExceptionContract faultcontract = new FaultExceptionContract();
+                faultcontract.Message = "No record found for specified Name";
+                throw new FaultException<FaultExceptionContract>(faultcontract, new FaultReason("No record found for specified Name"));
+            }
+        }
+
+
+        public List<Employee> GetEmployeesByRemark(string remark)
+        {
+            List<Employee> remarkEmployeeList = new List<Employee>();
+            int flag = 0;
+            try
+            {
+                //Check if employees with specified remark are present
+                remarkEmployeeList.AddRange(_list.Where(t => t.Remarks.ContainsValue(remark)));
+                if (remarkEmployeeList.Count != 0)
+                {
+                    flag = 1;
+                }
+                if (flag == 0)
+                    throw new Exception();
+                return remarkEmployeeList;
+            }
+            catch
+            {
+                FaultExceptionContract faultcontract = new FaultExceptionContract();
+                faultcontract.Message = "No record found for specified Remark";
+                throw new FaultException<FaultExceptionContract>(faultcontract, new FaultReason("No record found for specified Remark"));
+            }
         }
     }
 }
