@@ -11,4 +11,3 @@ E:\wcf\WCF\EmployeeService\Consumer\obj\Debug\Consumer.exe
 E:\wcf\WCF\EmployeeService\Consumer\obj\Debug\Consumer.pdb
 E:\wcf\WCF\EmployeeService\Consumer\bin\Debug\Consumer.exe
 E:\wcf\WCF\EmployeeService\Consumer\bin\Debug\Consumer.pdb
-E:\wcf\WCF\EmployeeService\Consumer\obj\Debug\Consumer.csprojResolveAssemblyReference.cache

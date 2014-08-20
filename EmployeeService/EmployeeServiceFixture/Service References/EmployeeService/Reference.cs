@@ -15,6 +15,51 @@ namespace EmployeeServiceFixture.EmployeeService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FaultExceptionContract", Namespace="http://schemas.datacontract.org/2004/07/EmployeeService")]
+    [System.SerializableAttribute()]
+    public partial class FaultExceptionContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://schemas.datacontract.org/2004/07/EmployeeService")]
     [System.SerializableAttribute()]
     public partial class Employee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -90,51 +135,6 @@ namespace EmployeeServiceFixture.EmployeeService {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FaultExceptionContract", Namespace="http://schemas.datacontract.org/2004/07/EmployeeService")]
-    [System.SerializableAttribute()]
-    public partial class FaultExceptionContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Message {
-            get {
-                return this.MessageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
-                    this.MessageField = value;
-                    this.RaisePropertyChanged("Message");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EmployeeService.ICreateEmployeeService")]
     public interface ICreateEmployeeService {
@@ -142,10 +142,10 @@ namespace EmployeeServiceFixture.EmployeeService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateEmployeeService/CreateEmployee", ReplyAction="http://tempuri.org/ICreateEmployeeService/CreateEmployeeResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(EmployeeServiceFixture.EmployeeService.FaultExceptionContract), Action="http://tempuri.org/ICreateEmployeeService/CreateEmployeeFaultExceptionContractFau" +
             "lt", Name="FaultExceptionContract", Namespace="http://schemas.datacontract.org/2004/07/EmployeeService")]
-        string CreateEmployee(EmployeeServiceFixture.EmployeeService.Employee employee);
+        string CreateEmployee(int id, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateEmployeeService/CreateEmployee", ReplyAction="http://tempuri.org/ICreateEmployeeService/CreateEmployeeResponse")]
-        System.Threading.Tasks.Task<string> CreateEmployeeAsync(EmployeeServiceFixture.EmployeeService.Employee employee);
+        System.Threading.Tasks.Task<string> CreateEmployeeAsync(int id, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICreateEmployeeService/AddRemarks", ReplyAction="http://tempuri.org/ICreateEmployeeService/AddRemarksResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(EmployeeServiceFixture.EmployeeService.FaultExceptionContract), Action="http://tempuri.org/ICreateEmployeeService/AddRemarksFaultExceptionContractFault", Name="FaultExceptionContract", Namespace="http://schemas.datacontract.org/2004/07/EmployeeService")]
@@ -182,12 +182,12 @@ namespace EmployeeServiceFixture.EmployeeService {
                 base(binding, remoteAddress) {
         }
         
-        public string CreateEmployee(EmployeeServiceFixture.EmployeeService.Employee employee) {
-            return base.Channel.CreateEmployee(employee);
+        public string CreateEmployee(int id, string name) {
+            return base.Channel.CreateEmployee(id, name);
         }
         
-        public System.Threading.Tasks.Task<string> CreateEmployeeAsync(EmployeeServiceFixture.EmployeeService.Employee employee) {
-            return base.Channel.CreateEmployeeAsync(employee);
+        public System.Threading.Tasks.Task<string> CreateEmployeeAsync(int id, string name) {
+            return base.Channel.CreateEmployeeAsync(id, name);
         }
         
         public string AddRemarks(int id, string remarks) {

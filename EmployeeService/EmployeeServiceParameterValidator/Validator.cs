@@ -21,9 +21,22 @@ namespace EmployeeServiceParameterValidator
 
         public object BeforeCall(string operationName, object[] inputs)
         {
+            
             if (operationName == "CreateEmployee")
             {
-                return inputs;
+                Regex MyRegex = new Regex("^[a-zA-Z ]+$");
+                if ((int)inputs[0] < 0)
+                {
+                    throw new FaultException("Incorrect ID");
+                }
+                if (MyRegex.IsMatch(inputs[1].ToString()))
+                {
+                    return inputs;
+                }
+                else
+                {
+                    throw new FaultException("Name should contain only alphabets");
+                }
             }
             if (operationName == "AddRemarks")
             {

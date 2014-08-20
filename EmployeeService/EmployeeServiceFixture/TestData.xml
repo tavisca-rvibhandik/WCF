@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Employees>
+  - <CreateEmployee>
+    <EmployeeId>1</EmployeeId>
+    <EmployeeName>Rashmi</EmployeeName>
+  </CreateEmployee>
+  
+
+  <!--- <AddAgainEmployee>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Shivani</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </AddAgainEmployee>
+  - <RetrieveEmployeeById>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Pooja</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </RetrieveEmployeeById>
+  - <RetrieveEmployeeByIdButIdNotPresent>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Namrata</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+    <EmployeeIdNotPresent>101</EmployeeIdNotPresent>
+  </RetrieveEmployeeByIdButIdNotPresent>
+  - <RetrieveEmployeeByName>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Nikita</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </RetrieveEmployeeByName>
+  - <RetrieveEmployeeByNameButNameNotPresent>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Archita</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+    <EmployeeNameNotPresent>Baggi</EmployeeNameNotPresent>
+  </RetrieveEmployeeByNameButNameNotPresent>
+  - <RetrieveAllEmployees>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Priti</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </RetrieveAllEmployees>
+  - <AddRemark>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Smriti</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+    <NewRemark>OutStanding</NewRemark>
+  </AddRemark>
+  - <AddRemarkButEmployeeNotPresent>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Rachana</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+    <NewRemark>OutStanding</NewRemark>
+    <EmployeeIdNotPresent>103</EmployeeIdNotPresent>
+  </AddRemarkButEmployeeNotPresent>
+  - <GetEmployeeByRemark>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Prem</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </GetEmployeeByRemark>
+  - <GetEmployeeByRemarkButRemarkNotPresent>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Anshu</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+    <EmployeeRemarkNotPresent>Bad</EmployeeRemarkNotPresent>
+  </GetEmployeeByRemarkButRemarkNotPresent>
+  - <AddRemarksByIdValidatorId>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Neha</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </AddRemarksByIdValidatorId>
+  - <AddRemarksByIdValidatorRemark>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Pratima12$@!</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </AddRemarksByIdValidatorRemark>
+  - <GetEmployeesByIdValidatorId>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Sofiya</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </GetEmployeesByIdValidatorId>
+  - <GetEmployeesByNameValidatorName>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Sofiya12@#!</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </GetEmployeesByNameValidatorName>
+  - <GetEmployeesByRemarkValidatorRemark>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Sofiya</EmployeeName>
+    <EmployeeRemark>Average</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </GetEmployeesByRemarkValidatorRemark>
+  - <CreateEmployeeValidatorId>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Sheetal</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </CreateEmployeeValidatorId>
+  - <CreateEmployeeValidatorName>
+    <EmployeeId>9245fe4a-d402-451c-b9ed-9c1a04247482</EmployeeId>
+    <EmployeeName>Deepali123!@#</EmployeeName>
+    <EmployeeRemark>Good</EmployeeRemark>
+    <EmployeeRemarkDate>2/12/2014</EmployeeRemarkDate>
+  </CreateEmployeeValidatorName>-->
+  
+</Employees>
+

@@ -13,7 +13,7 @@ namespace EmployeeService
     {
         [OperationContract]
         [FaultContract(typeof(FaultExceptionContract))]
-        string CreateEmployee(Employee employee);
+        string CreateEmployee(int id, string name);
 
         [OperationContract]
         [FaultContract(typeof(FaultExceptionContract))]

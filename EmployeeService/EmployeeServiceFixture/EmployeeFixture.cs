@@ -16,18 +16,21 @@ namespace EmployeeServiceFixture
         Employee emp = new Employee();
         Employee emp1 = new Employee();
         Employee e = new Employee();
-
+        
+        [TestMethod]
+        [ExpectedException(typeof(FaultException<FaultExceptionContract>))]
+        public void RetrieveEmptyEmployeeListTest()
+        {
+            List<Employee> empList = new List<Employee>();
+            empList = retrieveClient.GetEmployees();
+        }
 
         [TestMethod]
         public void CreateEmployeeTest()
         {
-            emp1.Id = 1;
-            emp1.Name = "a";
-            emp1.Remarks = new Dictionary<DateTime, string>();
-            emp1.Remarks.Add(System.DateTime.Now, "good");
-            createClient.CreateEmployee(emp1);
-            _List.Add(emp1);
-            Assert.AreEqual(1, _List[0].Id);
+            int id = 1;
+            string name = "a";
+            createClient.CreateEmployee(id, name);
         }
 
 
@@ -35,11 +38,9 @@ namespace EmployeeServiceFixture
         public void RetrieveEmployeeByIdTest()
         {
 
-            emp.Id = 2;
-            emp.Name = "b";
-            emp.Remarks = new Dictionary<DateTime, string>();
-            emp.Remarks.Add(System.DateTime.Now, "good");
-            createClient.CreateEmployee(emp);
+            int id = 2;
+            string name = "b";
+            createClient.CreateEmployee(id, name);
 
             Employee e = retrieveClient.SearchById(2);
             Assert.AreEqual(2, e.Id);
@@ -49,16 +50,12 @@ namespace EmployeeServiceFixture
         public void RetrieveEmployeeByNameTest()
         {
 
-            emp.Id = 3;
-            emp.Name = "c";
-            emp.Remarks = new Dictionary<DateTime, string>();
-            emp.Remarks.Add(System.DateTime.Now, "good");
-            createClient.CreateEmployee(emp);
-            emp.Id = 90;
-            emp.Name = "c";
-            emp.Remarks = new Dictionary<DateTime, string>();
-            emp.Remarks.Add(System.DateTime.Now, "good");
-            createClient.CreateEmployee(emp);
+            int id = 3;
+            string name = "c";
+            createClient.CreateEmployee(id, name);
+            id = 90;
+            name = "c";
+            createClient.CreateEmployee(id, name);
             List<Employee> empList = new List<Employee>();
             empList = retrieveClient.SearchByName("c");
             Assert.IsTrue(empList.Exists(t => String.Equals(t.Name, "c", StringComparison.OrdinalIgnoreCase) == true));
@@ -68,14 +65,12 @@ namespace EmployeeServiceFixture
         public void RetrieveEmployeesByRemarkTest()
         {
 
-            emp.Id = 4;
-            emp.Name = "d";
-            emp.Remarks = new Dictionary<DateTime, string>();
-            emp.Remarks.Add(System.DateTime.Now, "good");
-            createClient.CreateEmployee(emp);
+            int id = 4;
+            string name = "d";
+            createClient.CreateEmployee(id, name);
 
+            createClient.AddRemarks(id, "good");
             List<Employee> empList = new List<Employee>();
-            Employee e = new Employee();
             empList = retrieveClient.GetEmployeesByRemark("good");
             Assert.IsTrue(empList.Exists(t => t.Remarks.ContainsValue("good") == true));
         }
@@ -84,11 +79,9 @@ namespace EmployeeServiceFixture
         public void RetrieveAllEmployeesTest()
         {
 
-            emp.Id = 5;
-            emp.Name = "e";
-            emp.Remarks = new Dictionary<DateTime, string>();
-            emp.Remarks.Add(System.DateTime.Now, "good");
-            createClient.CreateEmployee(emp);
+            int id = 5;
+            string name = "e";
+            createClient.CreateEmployee(id, name);
 
             List<Employee> empList = new List<Employee>();
             empList = retrieveClient.GetEmployees();
@@ -98,11 +91,9 @@ namespace EmployeeServiceFixture
         public void AddRemarkTest()
         {
 
-            emp.Id = 6;
-            emp.Name = "f";
-            emp.Remarks = new Dictionary<DateTime, string>();
-            emp.Remarks.Add(System.DateTime.Now, "good");
-            createClient.CreateEmployee(emp);
+            int id = 6;
+            string name = "f";
+            createClient.CreateEmployee(id, name);
 
             createClient.AddRemarks(6,"toogood");
             Employee e = retrieveClient.SearchById(6);
@@ -114,17 +105,13 @@ namespace EmployeeServiceFixture
         [ExpectedException(typeof(FaultException<FaultExceptionContract>))]
         public void CreateDuplicateEmployeeTest()
         {
-            emp.Id = 7;
-            emp.Name = "h";
-            emp.Remarks = new Dictionary<DateTime, string>();
-            emp.Remarks.Add(System.DateTime.Now, "good");
-            createClient.CreateEmployee(emp);
+            int id = 7;
+            string name = "g";
+            createClient.CreateEmployee(id, name);
 
-            emp.Id = 7;
-            emp.Name = "g";
-            emp.Remarks = new Dictionary<DateTime, string>();
-            emp.Remarks.Add(System.DateTime.Now, "good");
-            createClient.CreateEmployee(emp);
+            id = 7;
+            name = "h";
+            createClient.CreateEmployee(id, name);
         }
 
         [TestMethod]
@@ -195,14 +182,22 @@ namespace EmployeeServiceFixture
             empList = retrieveClient.SearchByName("z34");
         }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(FaultException<FaultExceptionContract>))]
-        //public void RetrieveEmptyEmployeeListTest()
-        //{
-        //    List<Employee> empList = new List<Employee>();
-        //    empList = retrieveClient.GetEmployees();
-        //}
+        [TestMethod]
+        [ExpectedException(typeof(FaultException))]
+        public void CreateEmployeeIdShouldNotBeNegativeTest()
+        {
+            int id = -1;
+            string name = "a";
+            createClient.CreateEmployee(id, name);
+        }
 
-
+        [TestMethod]
+        [ExpectedException(typeof(FaultException))]
+        public void CreateEmployeeNameShouldContainOnlyAlphabetTest()
+        {
+            int id = 1;
+            string name = "a86";
+            createClient.CreateEmployee(id, name);
+        }
     }
 }

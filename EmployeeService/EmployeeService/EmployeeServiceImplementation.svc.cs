@@ -12,14 +12,17 @@ namespace EmployeeService
     {
         private static List<Employee> _list = new List<Employee>();
 
-        public string CreateEmployee(Employee e)
+        public string CreateEmployee(int id, string name)
         {
             try
             {
+                Employee e = new Employee();
                 //Check if employee with specified id is already present
-                var employee = _list.Where(t => t.Id == e.Id).FirstOrDefault();
+                var employee = _list.Where(t => t.Id == id).FirstOrDefault();
                 if (employee != null)
                     throw new Exception();
+                e.Id = id;
+                e.Name = name;
                 _list.Add(e);
                 return "Record successfully added";
             }
